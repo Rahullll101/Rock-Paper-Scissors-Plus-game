@@ -32,7 +32,9 @@ flowchart TD
 ```mermaid
 flowchart TD
     subgraph ProjectRoot [project/]
-        mainpy[main.py\nCLI Orchestration]
+        mainpy[main.py
+        \n
+        CLI Orchestration]
         agentpy[game_agent.py\nADK Referee Agent]
         toolspy[tools.py\nGame Logic Tools]
         statepy[state.py\nGame State Model]
@@ -354,23 +356,6 @@ Final Result: You win!
 
 ---
 
-# 🚩 Best Practices & Notes
-
-- **Agent-based Design**: The GameRefereeAgent is a true ADK agent, not just a function wrapper.
-- **Explicit State Passing**: All state is managed and updated externally, not hidden.
-- **No Overengineering**: Keeps to assignment scope, no unnecessary complexity.
-- **Manual Testing**: All edge cases (invalid input, bomb rules, ties) were tested.
-
----
-
-```card
-{
-    "title": "Assignment Alignment",
-    "content": "This implementation fulfills all assignment requirements: clear agent design, state management, correct ADK usage, and a clean, testable architecture."
-}
-```
-
----
 
 # 🏁 How to Run
 
@@ -386,6 +371,6 @@ Final Result: You win!
     python main.py
     ```
 
-
+---
 
 **Enjoy challenging the bot referee in Rock–Paper–Scissors–Plus!**
