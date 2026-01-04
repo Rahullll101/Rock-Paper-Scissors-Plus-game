@@ -30,7 +30,7 @@ flowchart TD
 ## 📂 Project Structure
 
 ```mermaid
-flowchart LR
+flowchart TD
     subgraph ProjectRoot [project/]
         mainpy[main.py\nCLI Orchestration]
         agentpy[game_agent.py\nADK Referee Agent]
@@ -42,7 +42,6 @@ flowchart LR
 *Shows the file organization and responsibilities.*
 
 ---
-
 # requirements.txt
 
 This file lists the Python dependencies required to run the project.
