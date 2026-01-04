@@ -1,13 +1,24 @@
-# ADK tools (logic + mutation)
 import random
 
 VALID_MOVES = {"rock", "paper", "scissors", "bomb"}
 
-def validate_move(move: str, bomb_used: bool):
+COMMON_MISTAKES = {
+    "scissor": "scissors",
+    "papers": "paper",
+    "rocks": "rock"
+}
+
+
+def validate_move(move: str, bomb_used: bool) -> dict:
+    """Validate user move and bomb usage."""
     if not move:
         return {"valid": False, "reason": "No move provided. Round wasted."}
 
     move = move.lower().strip()
+
+    # Fix common spelling mistakes (safe normalization)
+    if move in COMMON_MISTAKES:
+        move = COMMON_MISTAKES[move]
 
     if move not in VALID_MOVES:
         return {"valid": False, "reason": "Invalid move. Round wasted."}
@@ -18,13 +29,15 @@ def validate_move(move: str, bomb_used: bool):
     return {"valid": True, "move": move}
 
 
-def resolve_round(user_move: str, state):
+def resolve_round(user_move: str, state) -> dict:
+    """Resolve one round and mutate game state."""
     bot_moves = ["rock", "paper", "scissors"]
     if not state.bot_bomb_used:
         bot_moves.append("bomb")
 
     bot_move = random.choice(bot_moves)
 
+    # Track bomb usage
     if user_move == "bomb":
         state.user_bomb_used = True
     if bot_move == "bomb":
@@ -33,11 +46,11 @@ def resolve_round(user_move: str, state):
     winner = "draw"
 
     if user_move == bot_move:
-        winner = "draw"
-    elif user_move == "bomb" and bot_move != "bomb":
+        pass
+    elif user_move == "bomb":
         winner = "user"
         state.user_score += 1
-    elif bot_move == "bomb" and user_move != "bomb":
+    elif bot_move == "bomb":
         winner = "bot"
         state.bot_score += 1
     elif (
@@ -55,6 +68,5 @@ def resolve_round(user_move: str, state):
 
     return {
         "bot_move": bot_move,
-        "winner": winner,
-        "state": state
+        "winner": winner
     }

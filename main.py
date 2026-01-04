@@ -1,10 +1,10 @@
 # conversation loop
 from state import GameState
-from game_agent import GameAgent
+from game_agent import GameRefereeAgent
 
 
 def main():
-    agent = GameAgent()
+    agent = GameRefereeAgent()
     state = GameState()
 
     print("\n=== Welcome to Rock–Paper–Scissors–Plus ===\n")
@@ -29,4 +29,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
