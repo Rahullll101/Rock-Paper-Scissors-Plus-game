@@ -4,41 +4,32 @@ import random
 VALID_MOVES = {"rock", "paper", "scissors", "bomb"}
 
 def validate_move(move: str, bomb_used: bool):
+    if not move:
+        return {"valid": False, "reason": "No move provided. Round wasted."}
+
     move = move.lower().strip()
 
     if move not in VALID_MOVES:
-        return {
-            "valid": False,
-            "reason": "Invalid move. Round wasted."
-        }
+        return {"valid": False, "reason": "Invalid move. Round wasted."}
 
     if move == "bomb" and bomb_used:
-        return {
-            "valid": False,
-            "reason": "Bomb already used. Round wasted."
-        }
+        return {"valid": False, "reason": "Bomb already used. Round wasted."}
 
-    return {
-        "valid": True,
-        "move": move
-    }
+    return {"valid": True, "move": move}
 
-# import random
 
-def resolve_round(user_move, state):
+def resolve_round(user_move: str, state):
     bot_moves = ["rock", "paper", "scissors"]
     if not state.bot_bomb_used:
         bot_moves.append("bomb")
 
     bot_move = random.choice(bot_moves)
 
-    # Track bomb usage
     if user_move == "bomb":
         state.user_bomb_used = True
     if bot_move == "bomb":
         state.bot_bomb_used = True
 
-    # Determine winner
     winner = "draw"
 
     if user_move == bot_move:
