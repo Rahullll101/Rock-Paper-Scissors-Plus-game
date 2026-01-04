@@ -20,11 +20,11 @@ def main():
     print("\n=== GAME OVER ===")
 
     if state.user_score > state.bot_score:
-        print("🏆 Final Result: You win!")
+        print("Final Result: You win!")
     elif state.bot_score > state.user_score:
-        print("🤖 Final Result: Bot wins!")
+        print("Final Result: Bot wins!")
     else:
-        print("🤝 Final Result: It's a draw!")
+        print("Final Result: It's a draw!")
 
 
 if __name__ == "__main__":
