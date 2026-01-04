@@ -329,7 +329,7 @@ if __name__ == "__main__":
 
 | File             | Purpose                                | Key Classes/Functions            |
 |------------------|----------------------------------------|----------------------------------|
-| `requirements.txt` | Lists dependencies                    | -                                |
+| `requirements.txt` | Lists dependencies                    | `google-adk`                    |
 | `state.py`         | Manages game state                    | `GameState`                      |
 | `tools.py`         | Game logic and validation             | `validate_move`, `resolve_round` |
 | `game_agent.py`    | Orchestrates game using ADK           | `GameRefereeAgent`               |
