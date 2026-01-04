@@ -32,14 +32,24 @@ flowchart TD
 ```mermaid
 flowchart LR
     subgraph ProjectRoot [project/]
-        mainpy[main.py CLI Orchestration]
-        agentpy[game_agent.py\nADK Referee Agent]
-        toolspy[tools.py\nGame Logic Tools]
-        statepy[state.py\nGame State Model]
-        reqs[requirements.txt\nDependencies]
+        mainpy[main.py]
+        agentpy[game_agent.py]
+        toolspy[tools.py]
+        statepy[state.py]
+        reqs[requirements.txt]
     end
+
 ```
-*Shows the file organization and responsibilities.*
+*Shows the file organization*
+
+---
+**File responsibilities:**
+- `main.py` – CLI orchestration and game loop
+- `game_agent.py` – Google ADK-based referee agent
+- `tools.py` – Game logic and validation tools
+- `state.py` – Game state data model
+- `requirements.txt` – Project dependencies
+
 
 ---
 # requirements.txt
