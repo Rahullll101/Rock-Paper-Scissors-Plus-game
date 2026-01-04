@@ -30,11 +30,9 @@ flowchart TD
 ## 📂 Project Structure
 
 ```mermaid
-flowchart TD
+flowchart LR
     subgraph ProjectRoot [project/]
-        mainpy[main.py
-        \n
-        CLI Orchestration]
+        mainpy[main.py\nCLI Orchestration]
         agentpy[game_agent.py\nADK Referee Agent]
         toolspy[tools.py\nGame Logic Tools]
         statepy[state.py\nGame State Model]
