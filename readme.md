@@ -32,7 +32,7 @@ flowchart TD
 ```mermaid
 flowchart LR
     subgraph ProjectRoot [project/]
-        mainpy[main.py\nCLI Orchestration]
+        mainpy[main.py CLI Orchestration]
         agentpy[game_agent.py\nADK Referee Agent]
         toolspy[tools.py\nGame Logic Tools]
         statepy[state.py\nGame State Model]
